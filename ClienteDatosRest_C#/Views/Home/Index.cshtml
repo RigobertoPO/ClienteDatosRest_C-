@@ -1,0 +1,28 @@
+﻿@model ClienteDatosRest_C_.Models.WeatherResponse
+
+<main>
+
+
+    @{
+        ViewBag.Title = "Clima";
+    }
+
+    <h2>Clima actual 🌤</h2>
+
+    @if (Model != null)
+    {
+        <div style="padding:20px; border:1px solid #ccc; border-radius:10px; max-width:400px;">
+            <h3>@Model.name, @Model.sys.country</h3>
+            <p><strong>Clima:</strong> @Model.weather[0].description</p>
+            <p><strong>Temperatura:</strong> @Model.main.temp °C</p>
+            <p><strong>Sensación térmica:</strong> @Model.main.feels_like °C</p>
+            <p><strong>Humedad:</strong> @Model.main.humidity %</p>
+            <p><strong>Viento:</strong> @Model.wind.speed m/s</p>
+        </div>
+    }
+    else
+    {
+        <p>No se encontraron datos.</p>
+    }
+
+</main>
