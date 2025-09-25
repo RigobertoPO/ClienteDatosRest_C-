@@ -8,7 +8,16 @@
     }
 
     <h2>Clima actual 🌤</h2>
+    <!-- Formulario para ingresar longitud y latitud -->
+    <form method="get" asp-action="Index" style="margin-bottom:20px;">
+        <label for="lat">Latitud:</label>
+        <input type="text" id="lat" name="lat" placeholder="Ej. 19.43" required />
 
+        <label for="lon">Longitud:</label>
+        <input type="text" id="lon" name="lon" placeholder="Ej. -99.13" required />
+
+        <button type="submit">Buscar</button>
+    </form>
     @if (Model != null)
     {
         <div style="padding:20px; border:1px solid #ccc; border-radius:10px; max-width:400px;">

@@ -15,7 +15,7 @@ namespace ClienteDatosRest_C_.Services
         private readonly string apiKey = "0043c1ec2735faa4b5ed16fc3406fb2d"; // 🔑 Reemplaza con tu API Key
         private readonly string baseUrl = "https://api.openweathermap.org/data/2.5/weather";
 
-        public async Task<WeatherResponse> GetWeatherAsync(double lat, double lon)
+        public async Task<WeatherResponse> GetWeatherAsync(double? lat, double? lon)
         {
             using (var client = new HttpClient())
             {

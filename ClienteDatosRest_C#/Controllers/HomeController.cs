@@ -1,4 +1,5 @@
-﻿using ClienteDatosRest_C_.Services;
+﻿using ClienteDatosRest_C_.Models;
+using ClienteDatosRest_C_.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,13 @@ namespace ClienteDatosRest_C_.Controllers
         private readonly WeatherService _weatherService = new WeatherService();
 
         // GET: Weather
-        public async Task<ActionResult> Index(double lat = 19.4326, double lon = -99.1332)
+        public async Task<ActionResult> Index(double? lat, double? lon)
         {
-            var clima = await _weatherService.GetWeatherAsync(lat, lon);
+            WeatherResponse clima = null;
+            if (lat.HasValue && lon.HasValue)
+            {
+                clima = await _weatherService.GetWeatherAsync(lat, lon);
+            }
             return View(clima);
         }
 
